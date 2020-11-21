@@ -1,0 +1,4 @@
+*-secret.sh
+*.tfstate
+*.backup
+.terraform/

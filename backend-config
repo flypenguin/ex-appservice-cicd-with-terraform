@@ -1,0 +1,17 @@
+## Configured for local storage if you don't want to use a remote state.
+## which you should if you want to build on this.
+
+# nothing here -> local storage.
+
+
+## IF you want to use blob storage, do this:
+
+# in this storage account
+#resource_group_name="some-azure-resource-group"
+#storage_account_name="some-azure-storage-account"
+
+# the container name in which to store the state file
+#container_name="terraform"
+
+# the blob name for this state
+key="flypenguin_appservices0.tfstate"

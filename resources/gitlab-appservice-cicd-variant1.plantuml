@@ -1,0 +1,22 @@
+@startuml
+
+skinparam {
+   dpi 200
+}
+
+title Message Style - Sequence Diagram
+
+participant "User"
+participant "Developer" as Dev
+participant "GitLab" as GL
+participant "App Service" as AS
+
+
+Dev -> GL  : Push to master
+GL -> AS   : GitLab CI\npushes code to ...
+AS -> AS   : Build app from code
+AS -> AS   : Run App
+User -> AS : Use application
+
+
+@enduml
