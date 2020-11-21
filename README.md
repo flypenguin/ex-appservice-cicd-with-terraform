@@ -1,6 +1,6 @@
 # Terraform, GitLab & Azure App Service
 
-This is basically an example repo which contains code needed for [my blog post]().
+This is basically an example repo which contains code needed for [my blog post](https://flypenguin.de/2020/11/21/gitlab-app-service-ci-cd-variant-1/).
 
 ## Quickstart
 
