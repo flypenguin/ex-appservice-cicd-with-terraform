@@ -23,7 +23,9 @@ Have fun!
 
 **NOTE:** If you know `git-secret` you do already know what to do and don't need the stuff below. That's my way cause I kinda ignored `git-secret`.
 
-If you (what you should) don't want to check in app secrets, you can combine my [Secret Makefile]() with the [Terraform Makefile]() in this repository and change the app service configuration like this:
+If you don't want to check in app secrets ([see here](https://blog.gruntwork.io/a-comprehensive-guide-to-managing-secrets-in-your-terraform-code-1d586955ace1) for example), you can combine my Secret Makefile (link following) with the Terraform Makefile in this repository and change the app service configuration like this:
+
+Add your public GPG key in the directory `gpg_keys/your@key.email`, and then change the terraform code like this:
 
 ```hcl
 resource "azurerm_app_service" "coolapp" {
@@ -50,3 +52,5 @@ $ make reencode
 ```
 
 And you should be done.
+
+What it does is it will no longer check in the `*.insecure.yaml` files, but you will check in the `*.insecure.yaml.gpg` files, which is just the encrypted version. It will be encrypted to all keys under `gpg_keys/`, and before you can use anything you have to `make open` (of course, cause right after pulling this is going to be _not present_). Also you must not forget to do `make reencrypt` once you changed secrets in the decrypted files, cause changes are no longer picked up by git (of course, due to the `.gitignore` entry).
